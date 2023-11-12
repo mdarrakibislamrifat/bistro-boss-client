@@ -13,29 +13,10 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      
       <li>
         <NavLink
-          to="/messages"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          Contact Us
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/messages"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-         Dashboard
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/messages"
+          to="/menu"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
@@ -45,12 +26,22 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/messages"
+          to="/ourShop/salad"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
           Our Shop
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/login"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Login
         </NavLink>
       </li>
     </>
@@ -86,7 +77,7 @@ const Navbar = () => {
           <a className="btn btn-ghost normal-case text-xl"><span className="bold text-2xl">Bistro Boss</span><br /> R E S T A U R A N T</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+          <ul className="menu menu-horizontal px-1 ">{navLinks}</ul>
         </div>
         
       </div>
