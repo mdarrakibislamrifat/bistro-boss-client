@@ -1,7 +1,6 @@
 
 
 const MenuItem = ({item}) => {
-    console.log(item)
     const {name,recipe,price,image}=item || {}
     return (
         <div className="flex space-x-4">
