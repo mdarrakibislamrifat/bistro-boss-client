@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-
+import { FaShoppingCart } from 'react-icons/fa';
+import useCart from "../../../Hooks/useCart";
 const Navbar = () => {
-  const {user,logOut}=useContext(AuthContext)
-  const handleLogOut=()=>{
-    logOut()
-  }
+  const { user, logOut } = useContext(AuthContext);
+  const [cart]=useCart();
+  
+  const handleLogOut = () => {
+    logOut();
+  };
   const navLinks = (
     <>
       <li>
@@ -19,7 +22,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      
+
       <li>
         <NavLink
           to="/menu"
@@ -50,19 +53,35 @@ const Navbar = () => {
           Our Shop
         </NavLink>
       </li>
-      
-      {
-        user? <><button onClick={handleLogOut} className="btn btn-ghost">Logout</button></> : <><li>
-        <NavLink
-          to="/login"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          Login
-        </NavLink>
-      </li></>
-      }
+      <li>
+        <Link to="/dashboard/cart">
+          <button className="btn">
+            <FaShoppingCart className="mr-4"></FaShoppingCart>
+            <div className="badge badge-secondary">{cart.length}</div>
+          </button>
+        </Link>
+      </li>
+
+      {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -93,12 +112,14 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl"><span className="bold text-2xl">Bistro Boss</span><br /> R E S T A U R A N T</a>
+          <a className="btn btn-ghost normal-case text-xl">
+            <span className="bold text-2xl">Bistro Boss</span>
+            <br /> R E S T A U R A N T
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">{navLinks}</ul>
         </div>
-        
       </div>
     </>
   );

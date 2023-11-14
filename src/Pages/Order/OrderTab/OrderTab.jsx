@@ -23,7 +23,7 @@ console.log(swiperRef.current)
   
   return (
     <div>
-      {/* <Swiper
+      <Swiper
         pagination={pagination}
         modules={[Pagination]}
         className="mySwiper"
@@ -38,21 +38,8 @@ console.log(swiperRef.current)
         </SwiperSlide>
 
 
-      </Swiper> */}
-
-
-      <Swiper onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-        pagination={pagination}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        
       </Swiper>
+
     </div>
   );
 };
