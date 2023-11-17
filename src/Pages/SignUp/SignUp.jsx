@@ -4,47 +4,54 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
-  const {createUser,updateUserProfile}=useContext(AuthContext);
-const navigate=useNavigate();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const axiosPublic = UseAxiosPublic();
 
   const {
-    register,reset,
+    register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    
-    createUser(data.email,data.password)
-    .then(res=>{
-      const loggedUser=res.user;
-      console.log(loggedUser)
-      updateUserProfile(data.name,data.photoURL)
-      .then(()=>{
-        console.log('User profile updated')
-        reset();
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500
+    createUser(data.email, data.password).then((res) => {
+      const loggedUser = res.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          // console.log('User profile updated')
+          const userInfo = { name: data.name, email: data.email };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
+        })
+        .catch((error) => {
+          console.log(error);
         });
-        navigate('/')
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-    })
+    });
   };
 
   return (
     <>
-    <Helmet>
-      <title>Bistro Boss | SignUp</title>
-    </Helmet>
+      <Helmet>
+        <title>Bistro Boss | SignUp</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -80,7 +87,6 @@ const navigate=useNavigate();
                 <input
                   type="text"
                   placeholder="Photo URL"
-                  
                   {...register("photoURL", { required: true })}
                   className="input input-bordered"
                   required
@@ -135,7 +141,15 @@ const navigate=useNavigate();
                 />
               </div>
             </form>
-            <p><small>already have an account? <Link to='/login'>Login</Link></small></p>
+            <p className="text-center px-6 mb-6">
+              <small>
+                already have an account? <Link className="text-green-500 font-bold" to="/login">Login</Link>
+              </small>
+            </p>
+            <div className="divider"></div>
+            <div className="text-center mb-4">
+            <SocialLogin></SocialLogin>
+            </div>
           </div>
         </div>
       </div>
