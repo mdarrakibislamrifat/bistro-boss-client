@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -6,9 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import animation from '../../assets/Animation - 1700490734067.json'
+import Lottie from "lottie-react";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const [error,setError]=useState()
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
 
@@ -42,7 +45,7 @@ const SignUp = () => {
           });
         })
         .catch((error) => {
-          console.log(error);
+          setError(error.message)
         });
     });
   };
@@ -56,11 +59,9 @@ const SignUp = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Sign Up now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <div>
+              <Lottie animationData={animation}></Lottie>
+            </div>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -147,6 +148,7 @@ const SignUp = () => {
               </small>
             </p>
             <div className="divider"></div>
+            <p className="text-center text-red-500">{error}</p>
             <div className="text-center mb-4">
             <SocialLogin></SocialLogin>
             </div>

@@ -1,4 +1,7 @@
 import { useContext, useEffect,  useState } from "react";
+import animation from '../../assets/Animation - 1700490734067.json'
+
+
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -9,9 +12,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import Lottie from "lottie-react";
+
+
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState("");
   const { user, signIn } = useContext(AuthContext);
   const navigate=useNavigate();
   const location=useLocation();
@@ -26,11 +33,12 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signIn(email, password).then((res) => {
+    signIn(email, password)
+    .then((res) => {
       const user = res.user;
       console.log(user);
       Swal.fire({
-        title: "user login successfull",
+        title: "user login successful",
         showClass: {
           popup: `
             animate__animated
@@ -47,7 +55,10 @@ const Login = () => {
         }
       });
       navigate(from,{replace: true});
-    });
+    })
+    .catch(error=>{
+      setError(error.message)
+    })
   };
 
   const handleValidateCaptcha = (e) => {
@@ -66,15 +77,11 @@ const Login = () => {
     </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center md:w-1/2 lg:text-left">
+          <div className="text-center md:w-1/2 lg:text-left ">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <div><Lottie animationData={animation}></Lottie></div>
           </div>
-          <div className="card md:w-1/2 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card  w-full max-w-sm shadow-2xl bg-base-100 ">
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -99,9 +106,7 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                {/* <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label> */}
+                
               </div>
 
               <div className="form-control">
@@ -137,6 +142,7 @@ const Login = () => {
               </small>
             </p>
             <div className="divider"></div>
+            <p className="text-center text-red-500">{error}</p>
             <div className="text-center mb-2">
             <SocialLogin></SocialLogin>
             </div>
