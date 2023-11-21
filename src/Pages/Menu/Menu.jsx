@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../Shared/Cover/Cover";
-import menuImg from '../../assets/menu/banner3.jpg'
-import dessertImg from '../../assets/menu/dessert-bg.jpeg'
-import pizzaImg from '../../assets/menu/pizza-bg.jpg'
-import saladImg from '../../assets/menu/salad-bg.jpg'
-import soupImg from '../../assets/menu/soup-bg.jpg'
-
+import menuImg from '../../assets/menu/location-symbol-with-landscape-background (1).jpg'
+import dessertImg from '../../assets/menu/34632309636_90e776df_b.jpg'
+import pizzaImg from '../../assets/menu/IMG_0427.jpg'
+import saladImg from '../../assets/menu/Photo-SL_From-Top_01-15.jpg'
+import soupImg from '../../assets/menu/download.jpeg'
+import gulshanImg from '../../assets/menu/aerial-view-of-gulshan-2-circle-in-dhaka-bangladesh-PY6XW9.jpg'
 import useMenu from "../../Hooks/useMenu";
 import SectionTitle from "../../Components/SectionTitle/Sectiontitle";
 import MenuCategory from "./MenuCategory/MenuCategory";
@@ -13,30 +13,32 @@ import MenuCategory from "./MenuCategory/MenuCategory";
 
 const Menu = () => {
     const [menu]=useMenu()
-    const desserts=menu.filter(item=>item.category === 'dessert')
-    const soup=menu.filter(item=>item.category === 'soup')
-    const salad=menu.filter(item=>item.category === 'salad')
-    const pizza=menu.filter(item=>item.category === 'pizza')
-    const offered=menu.filter(item=>item.category === 'offered')
+    const mirpur=menu.filter(item=>item.category === 'mirpur')
+    const dhanmondi=menu.filter(item=>item.category === 'dhanmondi')
+    const gulshan=menu.filter(item=>item.category === 'gulshan')
+    const boshundhara=menu.filter(item=>item.category === 'boshundhara')
+    const agargaon=menu.filter(item=>item.category === 'agargaon')
 
     return (
         <div>
             <Helmet>
-                <title>Bistro Boss | Menu</title>
+                <title>Location | Service</title>
             </Helmet>
-            <Cover img={menuImg} coverTitle='Our Menu' ></Cover>
+            <Cover img={menuImg} coverTitle='Our Service' ></Cover>
 
-           <SectionTitle subHeading='Do not miss' heading='Todays offer'></SectionTitle>
+           <SectionTitle subHeading='Check Locations' heading='Here are some category'></SectionTitle>
 
-           <MenuCategory items={offered}></MenuCategory>
+          
 
-           <MenuCategory items={desserts}  coverImg={dessertImg} coverTitle='dessert' ></MenuCategory>
+           <MenuCategory items={mirpur}  coverImg={dessertImg} coverTitle='Mirpur' ></MenuCategory>
 
-           <MenuCategory items={pizza}  coverImg={pizzaImg} coverTitle='pizza' ></MenuCategory>
+           <MenuCategory items={dhanmondi}  coverImg={pizzaImg} coverTitle='Dhanmondi' ></MenuCategory>
 
-           <MenuCategory items={salad}  coverImg={saladImg} coverTitle='salad' ></MenuCategory>
+           <MenuCategory items={gulshan} coverImg={gulshanImg} coverTitle='Gulshan' ></MenuCategory>
 
-           <MenuCategory items={soup}  coverImg={soupImg} coverTitle='soup' ></MenuCategory>
+           <MenuCategory items={boshundhara}  coverImg={saladImg} coverTitle='Boshundhara' ></MenuCategory>
+
+           <MenuCategory items={agargaon}  coverImg={soupImg} coverTitle='Agargaon' ></MenuCategory>
             
         </div>
     );

@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCart from "../../../Hooks/useCart";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = () => {
   const stripe = useStripe();
@@ -15,6 +16,7 @@ const CheckOutForm = () => {
   const [cart,refetch]=useCart();
   const totalPrice=cart.reduce((total,item)=>total+item.price,0)
   const {user}=useAuth();
+  const navigate=useNavigate()
 
 useEffect(()=>{
    if(totalPrice>0){axiosSecure.post('/create-payment-intent',{price:totalPrice})
@@ -86,6 +88,7 @@ useEffect(()=>{
           title: "Thank you for payment",
           icon: "success"
         });
+        navigate('/dashboard/paymentHistory')
           }
         }
   };

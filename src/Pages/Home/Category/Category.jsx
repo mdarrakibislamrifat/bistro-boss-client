@@ -3,11 +3,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-import img1 from "../../../assets/home/slide1.jpg";
-import img2 from "../../../assets/home/slide2.jpg";
-import img3 from "../../../assets/home/slide3.jpg";
-import img4 from "../../../assets/home/slide4.jpg";
-import img5 from "../../../assets/home/slide5.jpg";
 import SectionTitle from "../../../Components/SectionTitle/Sectiontitle";
 
 
@@ -15,8 +10,8 @@ import SectionTitle from "../../../Components/SectionTitle/Sectiontitle";
 const Category = () => {
   return (
     <section>
-        <SectionTitle subHeading={'From 11.00 am to 10.00 pm'}
-          heading={'Order Online'}>
+        <SectionTitle subHeading={''}
+          heading={'Some Popular Location'}>
           
         </SectionTitle>
         
@@ -31,35 +26,42 @@ const Category = () => {
         className="mySwiper mb-24"
       >
         <SwiperSlide>
-          <img src={img1} alt="" />
+          <img src='https://i.ibb.co/ckZgV8H/bashundhara-city.jpg' alt="" />
           <h3 className="uppercase text-4xl text-center -mt-16 text-white shadow-lg">
-            Salads
+            Boshundhara
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img2} alt="" />
+          <img src='https://i.ibb.co/vJqR0s8/03-Botanical-Garden-Dhaka.jpg' alt="" />
           <h3 className="uppercase text-4xl text-center -mt-16 text-white shadow-lg">
-            Pizzas
+            Botanical
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img3} alt="" />
+          <img src='https://i.ibb.co/98Tx4S7/70-big.jpg' alt="" />
           <h3 className="uppercase text-4xl text-center -mt-16 text-white shadow-lg">
-            Soups
+            Shiya Mosjid
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img4} alt="" />
+          <img src='https://i.ibb.co/pfNFxjn/exterior.jpg' alt="" />
           <h3 className="uppercase text-4xl text-center -mt-16 text-white shadow-lg">
-            Deserts
+            Gulshan
           </h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img5} alt="" />
+          <img src='https://i.ibb.co/qpyyHDR/ebf8fc620ad1323e8499c9a441997194.jpg' alt="" />
           <h3 className="uppercase text-4xl text-center -mt-16 text-white shadow-lg">
-            Salads
+            Dhanmondi
           </h3>
         </SwiperSlide>
+        <SwiperSlide>
+          <img src='https://i.ibb.co/g98jXJK/1000-F-309142440-LK010ek-Ms6-V3r-Obc0c-Ex-DYZErm6-F3x-KE.jpg' alt="" />
+          <h3 className="uppercase text-4xl text-center -mt-16 text-white shadow-lg">
+            Sonargaon
+          </h3>
+        </SwiperSlide>
+        
       </Swiper>
     </section>
   );

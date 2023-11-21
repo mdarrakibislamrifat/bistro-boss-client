@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Components/SectionTitle/Sectiontitle";
-import { FaUtensilSpoon } from "react-icons/fa";
+import { FaBook, FaUtensilSpoon } from "react-icons/fa";
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic"
 import useAxiosSecure from "../../../Hooks/UseAxiosSecure"
 import Swal from "sweetalert2";
@@ -35,7 +35,7 @@ const AddItems = () => {
             // dfdf
             Swal.fire({
                 title: "Good job!",
-                text: `${data.name} is added to menu`,
+                text: `${data.name} is added to site`,
                 icon: "success"
               });
         }
@@ -51,12 +51,12 @@ const AddItems = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
             <label className="label">
-              <span className="label-text">Recipe Name*</span>
+              <span className="label-text">Name*</span>
             </label>
             <input
               {...register("name",{required:true})}
               type="text"
-              placeholder="recipe name"
+              placeholder=" name"
               className="input input-bordered w-full "
             />
           </div>
@@ -71,11 +71,11 @@ const AddItems = () => {
                 className="select select-bordered w-full "
               >
                 <option disabled value='default'>Select a category</option>
-                <option value="salad">Salad</option>
-                <option value="pizza">Pizza</option>
-                <option value="soup">Soup</option>
-                <option value="dessert">Dessert</option>
-                <option value="drinks">Drinks</option>
+                <option value="mirpur">Mirpur</option>
+                <option value="dhanmondi">Dhanmondi</option>
+                <option value="gulshan">Gulshan</option>
+                <option value="boshundhara">Boshundhara</option>
+                <option value="agargaon">Agargaon</option>
               </select>
             </div>
 
@@ -97,12 +97,12 @@ const AddItems = () => {
           {/* recipe details */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Recipe Details*</span>
+              <span className="label-text">Details*</span>
               
             </label>
             <textarea {...register('recipe',{required:true})}
               className="textarea textarea-bordered h-24"
-              placeholder="recipe details"
+              placeholder="details"
             ></textarea>
             
           </div>
@@ -112,7 +112,7 @@ const AddItems = () => {
                 </div>
 
 
-          <button className="btn mt-6">Add Item <FaUtensilSpoon className="ml-4"></FaUtensilSpoon> </button>
+          <button className="btn mt-6">Add Item <FaBook className="ml-4"></FaBook> </button>
         </form>
       </div>
     </div>

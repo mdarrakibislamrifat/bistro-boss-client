@@ -17,11 +17,11 @@ const Order = () => {
     const [menu]=useMenu();
     
     
-    const deserts=menu.filter(item=>item.category === 'dessert')
-    const soup=menu.filter(item=>item.category === 'soup')
-    const salad=menu.filter(item=>item.category === 'salad')
-    const pizza=menu.filter(item=>item.category === 'pizza')
-    const drinks=menu.filter(item=>item.category === 'drinks')
+    const mirpur=menu.filter(item=>item.category === 'mirpur')
+    const dhanmondi=menu.filter(item=>item.category === 'dhanmondi')
+    const gulshan=menu.filter(item=>item.category === 'gulshan')
+    const boshundhara=menu.filter(item=>item.category === 'boshundhara')
+    const agargaon=menu.filter(item=>item.category === 'agargaon')
 
 
  return (
@@ -33,23 +33,23 @@ const Order = () => {
 
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
       <TabList>
-        <Tab>Salad</Tab>
-        <Tab>Pizza</Tab>
-        <Tab>Soup</Tab>
-        <Tab>Dessert</Tab>
-        <Tab>Drinks</Tab>
+        <Tab>Mirpur</Tab>
+        <Tab>Dhanmondi</Tab>
+        <Tab>Gulshan</Tab>
+        <Tab>Boshundhara</Tab>
+        <Tab>Agargaon</Tab>
       </TabList>
       <TabPanel>
-       <OrderTab items={salad}></OrderTab>
+       <OrderTab items={mirpur}></OrderTab>
       </TabPanel>
       <TabPanel>
-      <OrderTab items={pizza}></OrderTab>
+      <OrderTab items={dhanmondi}></OrderTab>
       </TabPanel>
       <TabPanel>
-      <OrderTab items={soup}></OrderTab>
+      <OrderTab items={gulshan}></OrderTab>
       </TabPanel>
-      <TabPanel><OrderTab items={deserts}></OrderTab></TabPanel>
-      <TabPanel><OrderTab items={drinks}></OrderTab></TabPanel>
+      <TabPanel><OrderTab items={boshundhara}></OrderTab></TabPanel>
+      <TabPanel><OrderTab items={agargaon}></OrderTab></TabPanel>
     </Tabs>
     </div>
   );

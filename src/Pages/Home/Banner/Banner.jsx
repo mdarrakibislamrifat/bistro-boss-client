@@ -1,37 +1,32 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import img1 from '../../../assets/home/01.jpg'
-import img2 from '../../../assets/home/02.jpg'
-import img3 from '../../../assets/home/03.png'
-import img4 from '../../../assets/home/04.jpg'
-import img5 from '../../../assets/home/05.png'
-import img6 from '../../../assets/home/06.png'
+
 const Banner = () => {
     return (
         <div>
             <Carousel autoPlay stopOnHover>
                 <div>
-                    <img src={img1} />
+                    <img  src='https://i.ibb.co/sbnSRkt/location-symbol-with-building-2-1.jpg' />
                     
                 </div>
                 <div>
-                    <img src={img2} />
+                    <img src='https://i.ibb.co/fdnj0x4/Screenshot-2023-11-11-183910-1.png' />
                     
                 </div>
                 <div>
-                    <img src={img3} />
+                    <img src='https://i.ibb.co/8zjBzVB/hatirjhil.webp' />
                     
                 </div>
                 <div>
-                    <img src={img4} />
+                    <img src='https://i.ibb.co/cbDgGQf/palacio-cor-de-rosa.jpg' />
                     
                 </div>
                 <div>
-                    <img src={img5} />
+                    <img src='https://i.ibb.co/m6YShBt/Dhanmondi-Lake-02.jpg' />
                     
                 </div>
                 <div>
-                    <img src={img6} />
+                    <img src='https://i.ibb.co/XzFp8qq/1280px-Gulshan-Lake-scenery.jpg' />
                     
                 </div>
             </Carousel>

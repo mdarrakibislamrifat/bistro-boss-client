@@ -8,7 +8,7 @@ import {
   FaSearch,
   FaShoppingCart,
   FaUser,
-  FaUtensilSpoon,
+  
   FaVoicemail,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
@@ -27,14 +27,14 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/adminHome">
                   {" "}
-                  <FaHome></FaHome> User Admin Home
+                  <FaHome></FaHome> Admin Home
                 </NavLink>
               </li>
 
               <li>
                 <NavLink to="/dashboard/addItems">
                   {" "}
-                  <FaUtensilSpoon></FaUtensilSpoon> Add Items
+                  <FaBook></FaBook> Add Items
                 </NavLink>
               </li>
 
@@ -45,11 +45,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
-              <li>
-                <NavLink to="/dashboard/paymentHistory">
-                  <FaPaypal></FaPaypal> Payments History
-                </NavLink>
-              </li>
+              
 
               <li>
                 <NavLink to="/dashboard/users">
@@ -66,12 +62,9 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
-              <li>
-                <NavLink to="/dashboard/reservation">
-                  {" "}
-                  <FaCalendar></FaCalendar> Reservation
-                </NavLink>
-              </li>
+              
+
+              
 
               <li>
                 <NavLink to="/dashboard/cart">
@@ -80,17 +73,18 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
-              <li>
-                <NavLink to="/dashboard/review">
-                  <FaAd></FaAd> Review
-                </NavLink>
-              </li>
+              
 
               <li>
               <NavLink to="/dashboard/paymentHistory">
-                  <FaPaypal></FaPaypal> Payments History
+                  <FaPaypal></FaPaypal> Real Payments History
                 </NavLink>
               </li>
+              <li>
+            <NavLink to="/dashboard/contact">
+              <FaVoicemail></FaVoicemail> Contact
+            </NavLink>
+          </li>
             </>
           )}
           <div className="divider"></div>
@@ -109,11 +103,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
 
-          <li>
-            <NavLink to="/ourShop/contact">
-              <FaVoicemail></FaVoicemail> Contact
-            </NavLink>
-          </li>
+          
         </ul>
       </div>
       <div className="flex-1 p-8">

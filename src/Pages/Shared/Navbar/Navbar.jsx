@@ -3,9 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../Hooks/useCart";
+import useAdmin from "../../../Hooks/useAdmin";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [cart]=useCart();
+  const [isAdmin]=useAdmin();
   
   const handleLogOut = () => {
     logOut()
@@ -32,19 +34,39 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          Our Menu
+          Our Service
         </NavLink>
       </li>
-      <li>
+
+
+
+      {
+        user && isAdmin && <li>
         <NavLink
-          to="/secret"
+          to="/dashboard/adminHome"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          Secret
+          DashBoard
         </NavLink>
       </li>
+      }
+
+      {
+        user && !isAdmin && <li>
+        <NavLink
+          to="/dashboard/userHome"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          DashBoard
+        </NavLink>
+      </li>
+      }
+
+
       <li>
         <NavLink
           to="/ourShop/salad"
@@ -59,7 +81,7 @@ const Navbar = () => {
         <Link to="/dashboard/cart">
           <button className="btn">
             <FaShoppingCart className="mr-4"></FaShoppingCart>
-            <div className="badge badge-secondary">{cart.length}</div>
+            <div className="badge badge-sm badge-secondary">{cart.length}</div>
           </button>
         </Link>
       </li>
@@ -88,7 +110,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar  fixed max-w-screen-xl mx-auto bg-opacity-30 z-10 bg-black text-white">
+      <div className="navbar fixed max-w-screen-xl mx-auto bg-opacity-30 z-10 bg-black text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -114,10 +136,15 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
-            <span className="bold text-2xl">Bistro Boss</span>
-            <br /> R E S T A U R A N T
-          </a>
+          <Link to='/'><div className="btn btn-ghost normal-case text-xl">
+          <img
+            className="rounded-full w-[60px]"
+            src="https://i.ibb.co/mD0hTbt/48167.jpg"
+            alt=""
+          />
+            <span className="bold text-2xl">Friendly Location Suggestion</span>
+            
+          </div></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">{navLinks}</ul>
