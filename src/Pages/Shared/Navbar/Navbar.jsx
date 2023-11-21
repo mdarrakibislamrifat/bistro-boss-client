@@ -74,7 +74,7 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          Our Shop
+          Category
         </NavLink>
       </li>
       <li>

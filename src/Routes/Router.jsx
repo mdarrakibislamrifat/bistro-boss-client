@@ -22,11 +22,13 @@ import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../Pages/DashBoard/adminHome/AdminHome";
 import Contact from "../Pages/DashBoard/Contact/Contact";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
