@@ -10,7 +10,7 @@ const MenuCategory = ({items,coverImg,coverTitle,paragraph}) => {
             <div className="grid md:grid-cols-2 gap-10 mt-16">
                 {items.map(item=><MenuItem key={item._id} item={item}></MenuItem>)}
             </div>
-            <Link to={`/ourShop/${coverTitle}`}><button className="btn btn-outline border-0 border-b-4">Order Now</button></Link>
+            <Link to={`/ourShop/${coverTitle}`}><button className="btn btn-outline border-0 border-b-4">Go to List</button></Link>
         </div>
     );
 };
