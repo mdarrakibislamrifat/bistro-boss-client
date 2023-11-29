@@ -1,17 +1,18 @@
 import { FaGoogle } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const SocialLogin = () => {
     const {googleSignIn}=useAuth();
     const axiosPublic=UseAxiosPublic();
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+    const location=useLocation();
     const handleGoogleSingIn=()=>{
         googleSignIn()
         .then(res=>{
-            console.log(res)
+            navigate(location?.state ? location.state : '/')
             const userInfo={
                 email:res.user.email,
                 name:res.user.displayName

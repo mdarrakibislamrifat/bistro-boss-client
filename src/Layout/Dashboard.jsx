@@ -4,6 +4,7 @@ import {
   FaCalendar,
   FaHome,
   FaList,
+  FaMoneyBill,
   FaPaypal,
   FaSearch,
   FaShoppingCart,
@@ -50,6 +51,12 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/users">
                   <FaUser></FaUser>All Users
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/dashboard/userPayment">
+                  <FaMoneyBill></FaMoneyBill>Payment Request
                 </NavLink>
               </li>
             </>
@@ -99,7 +106,7 @@ const Dashboard = () => {
           <li>
             <NavLink to="/ourShop/salad">
               {" "}
-              <FaSearch></FaSearch>Menu
+              <FaSearch></FaSearch>Category
             </NavLink>
           </li>
 

@@ -23,6 +23,7 @@ import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../Pages/DashBoard/adminHome/AdminHome";
 import Contact from "../Pages/DashBoard/Contact/Contact";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UserPayment from "../Pages/DashBoard/UserPayment/UserPayment";
 
 export const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
         {
           path:'userHome',
           element:<UserHome></UserHome>
+        },
+        {
+          path:'userPayment',
+          element:<UserPayment></UserPayment>
         },
         {
           path:'contact',
