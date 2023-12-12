@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../Hooks/useCart";
@@ -8,9 +8,11 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [cart]=useCart();
   const [isAdmin]=useAdmin();
+  const navigate=useNavigate()
   
   const handleLogOut = () => {
     logOut()
+    navigate('/login')
     .then(()=>{})
     .catch(err=>console.log(err))
   };
